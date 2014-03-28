@@ -1,5 +1,5 @@
-require_relative "contacts"
-require_relative "customer"
+require './contacts'
+require './customer'
 
 
 class Runner
@@ -8,19 +8,24 @@ class Runner
 	end
 
 	def main_menu
-		puts "Amazing CRM"
 		puts "1. Add a contact"
 		puts "2. See all contacts"
-		puts "0. To exit"
 		puts "3. Remove a contact"
 		puts "4. Edit a contact"
+    puts "0. To exit"
 
 	end
 
 	def add_contact
-		puts "Enter customer's name"
+		puts "What is your first name?"
 		name = gets.chomp
-
+    puts "what is your last name?"
+    lastname= gets.chomp
+    puts "what is your email?"
+    email = gets.chomp
+    puts "notes"
+    notes =gets.chomp
+    
 	end
 
 	def show_contacts
@@ -58,7 +63,7 @@ class Runner
 				remove_contact
 			elsif  input ==4
 				edit_contact
-				
+
 				
 
 				end
