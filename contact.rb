@@ -1,7 +1,7 @@
 class Contact
 
 	attr_accessor :notes, :name, :id
-
+	
 	@@counter = 1000
 
 	def initialize

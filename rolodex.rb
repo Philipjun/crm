@@ -4,19 +4,19 @@ class Rolodex
   	contacts= []
 	end
 
-	def create_contact(name)
+	def add_contact(name)
   	contact = Contact.new
   	contact.name = name
   	@contacts << contact
 	end
 
-	def show_contacts
+	def display_all_contacts
   	@contacts.each do |contact|
     	puts contact
   	end
   end 
 
-	def remove_contact(id)
+	def delete_contact(id)
   	@contacts.deleteif {|c| c.id == id}
 	end
 

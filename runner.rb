@@ -58,7 +58,7 @@ class Runner
 			elsif  if input == 1
 				add_contact
 			elsif input == 2
-				show_contacts
+				display_all_contacts
 			elsif input ==3
 				remove_contact
 			elsif  input ==4
