@@ -1,6 +1,6 @@
 class Contact
 
-	attr_accessor :notes, :name, :id,
+	attr_accessor :notes, :name, :id
 
 	@@counter = 1000
 

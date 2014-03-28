@@ -1,5 +1,5 @@
-require './contacts'
-require './customer'
+require './contact'
+require './rolodex'
 
 
 class Runner
@@ -25,7 +25,7 @@ class Runner
     email = gets.chomp
     puts "notes"
     notes =gets.chomp
-    
+
 	end
 
 	def show_contacts
@@ -64,7 +64,7 @@ class Runner
 			elsif  input ==4
 				edit_contact
 
-				
+  			
 
 				end
 			end
