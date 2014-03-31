@@ -22,7 +22,7 @@ end
 
 	def add_contact
 
-			puts "What is your first name?"
+		puts "What is your first name?"
 		first_name = gets.chomp
 
 	   puts "What is your last name?"
@@ -32,8 +32,10 @@ end
 	   email =gets.chomp
 
 	   puts "Place notes"
-	   notes =gets.chomp
-	   @rolodex.add_contact(first_name, last_name, email, note)
+	   notes = gets.chomp
+
+	   @rolodex = Rolodex.new
+	   @rolodex.add_contact(first_name, last_name, email, notes)
 
 	end
 

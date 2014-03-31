@@ -20,22 +20,37 @@ class Rolodex
 	def display_all_contacts
   	@contacts.each do |contact|
     	puts contact
-      
-  	end
+    end
   end 
 
-	def delete_contact(id)
-  	  @contacts.delete_if { |c| c.id == id} 
-    end
       
    def display_id
-      @contacts.each do |contact| puts "ID: #{contact.id}\nFirst Name: #{contact.first_name}\nLast Name: #{contact.last_name}\n--\n"}
-  end
+      @contacts.each {|contact| puts "ID: #{contact.id}\nFirst Name: #{contact.first_name}\nLast Name: #{contact.last_name}\n--\n"}
+    end
+
+  def delete_contact(id)
+      @contacts.delete_if { |c| c.id == id} 
+    end
       
-  def display_attribute
+  def display_attribute(input)
+      @contacts.each do |contact|
+        if input == 1
+          puts contact.id
+        elsif input == 2
+          puts contact.first_name
+        elsif input == 3
+          puts contact.last_name
+        elsif input == 4
+          puts contact.email
+        elsif input == 5
+          puts contact.note
+        elsif input == 6
+          break
+        end
+      end
+    end
 
-
-  end
+  
 
 	 
   def edit_contact(id, new_name)
@@ -45,8 +60,7 @@ class Rolodex
 			end
 		@contacts.delete(result) if result !=nil
     end
- 
-
   end
-end
 
+
+end
