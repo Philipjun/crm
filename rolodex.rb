@@ -5,10 +5,15 @@ class Rolodex
     @id = 1000
 	end
 
-	def add_contact(name)
-  	first = Contact.new
-  	contact.name = contact
+	def add_contact (first_name, last_name, email, note)
+  	contact = Contact.new
+  	contact.first_name = first_name
+    contact.last_name = last_name
+    contact.email = email
+    contact.note = note
   	@contacts << contact
+    puts "new contact created"
+    puts "First name: #{contact.first_name}\nLast Name: #{contact.last_name}\nEmail: #{contact.email}\nNotes: #{contact.note}"
 	end
 
 
@@ -27,6 +32,11 @@ class Rolodex
       @contacts.each do |contact| puts "ID: #{contact.id}\nFirst Name: #{contact.first_name}\nLast Name: #{contact.last_name}\n--\n"}
   end
       
+  def display_attribute
+
+
+  end
+
 	 
   def edit_contact(id, new_name)
 		@contacts.each do |contact|
