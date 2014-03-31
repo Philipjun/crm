@@ -39,42 +39,52 @@ end
 
 	def display_id
 		@rolodex.display_id
-			end
+	end
 
 
-	def display_all_contacts
-		puts "All contacts"
-		@rolodex.display_all_contacts
-		end
+	def edit_contact
+		puts "ID to edit"
+			display_id
+			id = gets.chomp.to_i
+			puts "What do you want to edit?"
+			puts "(1) First Name"
+			puts "(2) Last Name"
+			puts "(3) Email"
+			puts "(4) Note"
+			puts "(0) Go back to Main Menu"
+		input = gets.chomp.to_i
+				if input != 0
+				puts "Are you sure?"
+				new_info =gets.chomp
+			@rolodex.edit_contact(id, new_name, new_info)
+			puts "new info"
+				@rolodex.display_target(id)
+	end
+end
 
 	def delete_contact
 		puts "Enter contact's ID to be removed"
 		id = gets.chomp.to_i
 		@rolodex.delete_contact(id)
+		puts "User #{id} is deleted"
 	end
 
-	def edit_contact
-		puts"ID to edit"
-		display_id
-		id = gets.chomp.to_i
-		puts "What do you want to edit?"
-		puts "(1) First Name"
-		puts "(2) Last Name"
-		puts "(3) Email"
-		puts "(4) Note"
-		puts "(0) Go back to Main Menu"
-
-		input = gets.chomp.to_i
-		if input != 0
-		puts "Are you sure?"
-		new_info =gets.chomp
-	@rolodex.edit_contact(id, new_name)
-	puts "new info"
-		@rolodex.display_target(id)
+	def display_all_contacts
+		@rolodex.display_all_contacts
 	end
 
+	def display_attribute
+			puts "Which attribute do you want to display?"
+			puts "(1) First Name"
+			puts "(2) Last Name"
+			puts "(3) Email"
+			puts "(4) Note"
+			puts "(0) Go back to Main Menu"
+			input =gets.chomp.to_i
+			@rolodex.display_attribute(input)
+			puts"----------"
 
-end
+	end
 
 	def run
 		done = false
@@ -107,5 +117,5 @@ end
 	end
 
 
-runner = Runner.new
-runner.run
+phil = Runner.new
+phil.run
