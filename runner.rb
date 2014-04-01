@@ -1,5 +1,6 @@
-require './contact'
 require './rolodex'
+require './contact'
+
 
 
 class Runner
@@ -9,14 +10,14 @@ class Runner
 	end
 
 	def main_menu
-		puts "[1] Add a new contact"
-  	puts "[2] Modify an existing contact"
-  	puts "[3] Delete a contact"
-  	puts "[4] Display all the contacts"
-	  puts "[5] Display an attribute"
-	  puts "[6] Exit"
-	  puts "Enter a number: "
-end
+		puts "[1] Add a new contact name"
+    puts "[2] Display a contact"
+    puts "[3] Edit a contact"
+    puts "[4] Display all the contacts"
+    puts "[5] Delete a contact"
+    puts "[6] Add notes"
+    puts "[0] Exit"
+	end
 
 	
 
@@ -24,20 +25,21 @@ end
 
 		puts "What is your first name?"
 		first_name = gets.chomp
+		
+	
+		puts "Enter last name"
+		last_name =gets.chomp
 
-	   puts "What is your last name?"
-	   last_name = gets.chomp
-
-	   puts "What is your email?"
-	   email =gets.chomp
-
-	   puts "Place notes"
-	   notes = gets.chomp
+		puts "Enter email"
+		email =gets.chomp
+	 
+	 	puts "Enter notes"
+	  notes = gets.chomp
 
 	   @rolodex = Rolodex.new
 	   @rolodex.add_contact(first_name, last_name, email, notes)
 
-	end
+		end	
 
 	def display_id
 		@rolodex.display_id
@@ -69,9 +71,18 @@ end
 		id = gets.chomp.to_i
 		@rolodex.delete_contact(id)
 		puts "User #{id} is deleted"
+		puts "Are you sure? Enter 'Y' or 'N' " 
+
+		confirmation = gets.chomp
+		if confirmation == 'Y'
+			@rolodex.delete_contact(id)
+		elsif  confirmation == 'N'
+			return ""
+		end		
 	end
 
 	def display_all_contacts
+		puts "-----------"
 		@rolodex.display_all_contacts
 	end
 
@@ -83,10 +94,17 @@ end
 			puts "(4) Note"
 			puts "(0) Go back to Main Menu"
 			input =gets.chomp.to_i
-			@rolodex.display_attribute(input)
+			@rolodex.display_attribute(id)
 			puts"----------"
 
 	end
+
+	def add_note
+		puts"Enter ID to create new note"
+		id =gets.chomp.to_i
+		@rolodex.add_note(id)
+	end
+
 
 	def run
 		done = false
@@ -99,14 +117,16 @@ end
 			elsif input == 1
 				add_contact
 			elsif input == 2
-				modify_contact
-			elsif input == 3
-				delete_contact
-			elsif input == 4
 				display_all_contacts
-			elsif input == 5
+			elsif input == 3
+				edit_contact
+			elsif input == 4
 				display_attribute
+			elsif input == 5
+				delete_contact
 			elsif input == 6
+					add_note
+				elsif input == 0
 				done = true
 			else
 				puts "Please enter the correct input"

@@ -5,12 +5,12 @@ class Rolodex
     @id = 1000
 	end
 
-	def add_contact (first_name, last_name, email, note)
+	def add_contact(first_name, last_name, email, notes)
   	contact = Contact.new
-  	contact.first_name = first_name
+  	contact.name = first_name
     contact.last_name = last_name
     contact.email = email
-    contact.note = note
+    contact.note = notes
   	@contacts << contact
     puts "new contact created"
     puts "First name: #{contact.first_name}\nLast Name: #{contact.last_name}\nEmail: #{contact.email}\nNotes: #{contact.note}"
@@ -25,26 +25,37 @@ class Rolodex
 
       
    def display_id
+      display = nil
       @contacts.each {|contact| puts "ID: #{contact.id}\nFirst Name: #{contact.first_name}\nLast Name: #{contact.last_name}\n--\n"}
+      puts display
     end
 
   def delete_contact(id)
+    remove = nil
       @contacts.delete_if { |c| c.id == id} 
     end
+
+    def add_note(id)
+      @contact.each do |contact| if contact.id == id
+        puts "add note"
+        new_note = gets.chomp
+        contact.notes.push
+      end
+    end
+    
       
-  def display_attribute(input)
+  def display_attribute(id)
       @contacts.each do |contact|
         if input == 1
-          puts contact.id
-        elsif input == 2
           puts contact.first_name
+        elsif input == 2
+           puts contact.last_name
         elsif input == 3
-          puts contact.last_name
+          puts contact.note
         elsif input == 4
           puts contact.email
-        elsif input == 5
-          puts contact.note
-        elsif input == 6
+        elsif input == 0
+         
           break
         end
       end
@@ -63,4 +74,5 @@ class Rolodex
   end
 
 
+end
 end
