@@ -2,7 +2,7 @@ class Contact
 
 @@counter = 1000
 
-	attr_accessor :notes, :name, :id, :last_name
+	attr_accessor :note, :first_name, :id, :last_name, :email, 
 	
 
 	def initialize

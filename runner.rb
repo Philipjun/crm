@@ -6,7 +6,7 @@ require './contact'
 class Runner
 	def initializer
 		puts "CRM system"
-		@rolodex =Rolodex.new
+		@rolodex = Rolodex.new
 	end
 
 	def main_menu

@@ -7,7 +7,7 @@ class Rolodex
 
 	def add_contact(first_name, last_name, email, notes)
   	contact = Contact.new
-  	contact.name = first_name
+  	contact.first_name = first_name
     contact.last_name = last_name
     contact.email = email
     contact.note = notes
@@ -60,7 +60,7 @@ class Rolodex
         end
       end
     end
-
+end
   
 
 	 
@@ -75,4 +75,4 @@ class Rolodex
 
 
 end
-end
+
